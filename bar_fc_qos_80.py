@@ -6,7 +6,7 @@ import random as rd
 from os.path import join as pjoin
 
 file_names = [
-    'qos90_part_all_fc.txt',
+    'qos90_part_all_cc.txt',
 ]
 
 expected_qos = 0.9
