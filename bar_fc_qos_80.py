@@ -1,13 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
+import random as rd
 from os.path import join as pjoin
 
 file_names = [
-    'qos80_part_all_fc.txt',
+    'qos90_part_all_fc.txt',
 ]
-colors = np.arange(0, 1, 1.0/2)
-expected_qos = 0.8
+
+expected_qos = 0.9
+colors = sns.color_palette("Paired").as_hex()[int(expected_qos*10) % 3 * 2 :]
+
 
 fig, ax = plt.subplots()
 # fig.set_size_inches((14, 6))
@@ -22,6 +26,7 @@ matrix = df.values
 num_pairs = len(matrix)
 ind = np.arange(num_pairs)
 width = 0.4
+ax.set_ylim([0, 1])
 
 for i in range(0, 2):
     row = matrix[:, 2+i]
@@ -38,9 +43,11 @@ for i in range(0, 2):
 
     # percentage
     vals = ax.get_yticks()
+    print vals
+    print ['{:3.2f}%'.format(x*100) for x in vals]
     ax.set_yticklabels(['{:3.2f}%'.format(x*100) for x in vals])
 
-ax.set_ylim([0, 1])
+
 ax.legend([x[0] for x in rects], ('Achieved QoS', 'Predicted QoS'),
           fontsize='small')
 ax.plot([-width, num_pairs - width], [expected_qos, expected_qos], "k--")

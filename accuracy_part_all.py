@@ -1,7 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 from os.path import join as pjoin
+from matplotlib.colors import ListedColormap
 
 file_name = 'pred_ipc_error.csv'
 df = pd.read_csv(filepath_or_buffer=pjoin('.\\csv', file_name), header=None, sep=',')
@@ -12,8 +14,9 @@ matrix = df.values[1:]
 num_hpt = len(matrix)
 num_lpt = len(headers) - 1
 ind = np.arange(num_hpt)
-colors = np.arange(0, 1, 1.0/num_lpt)
-print colors
+# colors = np.arange(0, 1, 1.0/num_lpt)
+colors = sns.color_palette("cubehelix", num_lpt).as_hex()
+
 width = 0.09
 
 fig, ax = plt.subplots()

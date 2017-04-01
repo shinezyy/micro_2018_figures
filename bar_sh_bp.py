@@ -1,13 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 from os.path import join as pjoin
 
 file_names = [
     'pred_ipc_error_share_bp.txt',
     'pred_ipc_error_part_all.txt',
 ]
-colors = np.arange(0, 1, 1.0/len(file_names))
+colors = sns.light_palette("green", n_colors=3, reverse=True).as_hex()
 
 fig, ax = plt.subplots()
 fig.set_size_inches((14, 6))

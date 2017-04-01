@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 from os.path import join as pjoin
 
 file_name = 'pred_ipc_error_part_all.txt'
@@ -18,7 +19,7 @@ rects = []
 
 row = matrix[:, 2]
 print row
-rects.append(ax.bar(ind, row, width*0.5, color='0'))
+rects.append(ax.bar(ind, row, width*0.5, color='purple'))
 
 # add text
 ax.set_ylabel('Prediction Error')
