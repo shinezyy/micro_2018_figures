@@ -6,7 +6,7 @@ from os.path import join as pjoin
 
 file_names = [
     'pred_ipc_error_share_tlb.txt',
-    'pred_ipc_error_part_all.txt',
+    'pred_ipc_error_part_all_64_spec3.txt',
 ]
 colors = sns.light_palette("purple", n_colors=3, reverse=True).as_hex()
 

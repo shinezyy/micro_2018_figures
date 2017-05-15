@@ -4,7 +4,7 @@ import pandas as pd
 import seaborn as sns
 from os.path import join as pjoin
 
-file_name = 'pred_ipc_error_part_all.txt'
+file_name = 'pred_ipc_error_part_all_64_spec3.txt'
 df = pd.read_csv(filepath_or_buffer=pjoin('.\\csv', file_name), header=None, sep=',')
 matrix = df.values
 # print headers
@@ -19,6 +19,7 @@ rects = []
 
 row = matrix[:, 2]
 print row
+print np.mean(np.abs(row))
 rects.append(ax.bar(ind, row, width*0.5, color='purple'))
 
 # add text

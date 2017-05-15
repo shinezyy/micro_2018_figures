@@ -14,8 +14,8 @@ matrix = df.values[1:]
 num_hpt = len(matrix)
 num_lpt = len(headers) - 1
 ind = np.arange(num_hpt)
-# colors = np.arange(0, 1, 1.0/num_lpt)
-colors = sns.color_palette("cubehelix", num_lpt).as_hex()
+colors = np.arange(0, 1, 1.0/num_lpt)
+# colors = sns.color_palette("cubehelix", num_lpt).as_hex()
 
 width = 0.09
 
@@ -45,4 +45,4 @@ file_name = pjoin('.\\fig\\', file_name.rstrip('.csv').replace('_', '-'))
 plt.savefig(file_name+'.eps', format='eps')
 plt.savefig(file_name+'.png')
 
-# plt.show()
+plt.show()
