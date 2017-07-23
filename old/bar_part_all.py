@@ -18,8 +18,8 @@ fig.set_size_inches((15, 7))
 rects = []
 
 row = matrix[:, 2]
-print row
-print np.mean(np.abs(row))
+print(row)
+print(np.mean(np.abs(row)))
 rects.append(ax.bar(ind, row, width*0.5, color='purple'))
 
 # add text

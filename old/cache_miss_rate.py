@@ -19,7 +19,7 @@ rects = []
 for i in range(0, num_targets):
     fig, ax = plt.subplots()
     row = matrix[i][1:]
-    print row
+    print(row)
     rects.append(ax.bar(ind, row, width, color='0'))
     stat = matrix[i][0]
     # add text

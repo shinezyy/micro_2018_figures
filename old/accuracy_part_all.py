@@ -23,7 +23,7 @@ fig, ax = plt.subplots()
 rects = []
 for i in range(0, num_lpt):
     row = matrix[:, i + 1]
-    print row
+    print(row)
     rects.append(ax.bar(ind + width*i, row, width, color=str(colors[i])))
 
 # add text

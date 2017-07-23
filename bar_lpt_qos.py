@@ -46,7 +46,7 @@ for i in range(0, len(file_names)):
     ind = np.arange(num_pairs)
     row = qos_col
 
-    print file_name, np.mean(np.abs(row))
+    print(file_name, np.mean(np.abs(row)))
     rects.append(ax.bar(ind + width*(i - 1), row, width, color=str(colors[i])))
 
     # add text

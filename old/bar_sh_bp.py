@@ -27,7 +27,7 @@ for i in range(0, len(file_names)):
 
     row = matrix[:, 2]
     # print row
-    print file_name, np.mean(np.abs(row))
+    print(file_name, np.mean(np.abs(row)))
     rects.append(ax.bar(ind + width*i, row, width, color=str(colors[i])))
 
     # add text

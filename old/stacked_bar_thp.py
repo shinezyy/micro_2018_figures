@@ -34,7 +34,7 @@ for i in range(0, 3):
     hpts = matrix[:, 2]
     lpts = matrix[:, 3]
     # print row
-    print file_name, np.mean(np.abs(hpts + lpts))
+    print(file_name, np.mean(np.abs(hpts + lpts)))
     rects.append(ax.bar(ind + width * i, hpts, width, color=colors[i]))
     rects.append(ax.bar(ind + width * i, lpts, width, bottom=hpts, color=colors[i+2]))
 

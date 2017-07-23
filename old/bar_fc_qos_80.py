@@ -31,7 +31,7 @@ ax.set_ylim([0, 1])
 for i in range(0, 2):
     row = matrix[:, 2+i]
     # print row
-    print file_name, np.mean(np.abs(row))
+    print(file_name, np.mean(np.abs(row)))
     rects.append(ax.bar(ind + width*i, row, width, color=str(colors[i])))
 
     # add text
@@ -43,8 +43,8 @@ for i in range(0, 2):
 
     # percentage
     vals = ax.get_yticks()
-    print vals
-    print ['{:3.2f}%'.format(x*100) for x in vals]
+    print(vals)
+    print(['{:3.2f}%'.format(x*100) for x in vals])
     ax.set_yticklabels(['{:3.2f}%'.format(x*100) for x in vals])
 
 

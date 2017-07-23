@@ -28,7 +28,7 @@ for i in range(0, len(file_names)):
     width = 0.6
     row = ipc_col
 
-    print file_name, np.mean(np.abs(row))
+    print(file_name, np.mean(np.abs(row)))
     rects.append(ax.bar(ind + width*i, row, width, color=str(colors[i])))
 
     # add text
