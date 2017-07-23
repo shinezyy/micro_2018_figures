@@ -5,10 +5,12 @@ import seaborn as sns
 from os.path import join as pjoin
 import sys
 
+qos = 90
+
 file_names = [
     'dyn.csv',
-    'cc_75.csv',
-    'cc_90.csv',
+    'fc_{}.csv'.format(qos),
+    'cc_{}.csv'.format(qos),
 ]
 
 legends = [
@@ -18,8 +20,8 @@ legends = [
 ]
 
 dyn_file = 'dyn.csv'
-outfile_name = '.\\fig\\qos-achieved-75'
-expected_qos = 0.75
+outfile_name = '.\\fig\\qos-achieved-{}'.format(qos)
+expected_qos = float(qos)/100
 colors = sns.light_palette("grey", n_colors=4, reverse=True).as_hex()
 
 fig, ax = plt.subplots()
@@ -32,7 +34,7 @@ num_pairs = 0
 
 # get pairs with poor performance when no control
 df = pd.read_csv(filepath_or_buffer=pjoin('.\\csv', dyn_file), header=0, sep=',', index_col=0)
-poor_indices = df[abs(df['QoS']) < 0.8].index
+poor_indices = df[abs(df['QoS_0']) < 0.8].index
 # print df.loc[poor_indices, :]
 
 for i in range(0, len(file_names)):
@@ -41,12 +43,13 @@ for i in range(0, len(file_names)):
     # matrix = df.values
     # print headers
     df = df.loc[poor_indices, :]
-    qos_col = df['QoS'].values
+    qos_col = df['QoS_0'].values
     num_pairs = len(df.values)
     ind = np.arange(num_pairs)
     row = qos_col
 
-    print file_name, np.mean(np.abs(row))
+    print file_name, 'mean:', np.mean(np.abs(row)), 'std:', np.std(row), \
+        'error:', np.mean(np.abs(row - float(qos)/100))
     rects.append(ax.bar(ind + width*(i - 1), row, width, color=str(colors[i])))
 
     # add text
