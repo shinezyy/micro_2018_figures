@@ -28,6 +28,7 @@ def get_qos_dict(filename):
         b0, b1 = index.split('_')
         qos0 = row.loc['QoS_0']
         # qos1 = row.loc['QoS_1']
+        # if b1 != 'lbm':
         add_qos_to_dict(b0, d, qos0)
         # add_qos_to_dict(b1, d, qos1)
     return d
@@ -69,12 +70,15 @@ df_dict = {}
 df_dict['comp_core_comp_cache'] =\
     get_qos_dict('variation\\big_core_comp_cache_comp_core_7x7.csv')
 
+df_dict['part_core_comp_cache'] = \
+    get_qos_dict('variation\\big_core_comp_cache_part_core_7x7.csv')
+
 df_dict['part_core_part_cache'] = \
     get_qos_dict('variation\\big_core_part_cache_part_core_7x7.csv')
 
 iter_num = 0
-width = 0.35
-colors = sns.light_palette("grey", n_colors=3, reverse=True).as_hex()
+width = 0.25
+colors = sns.light_palette("grey", n_colors=4, reverse=True).as_hex()
 rects_list = []
 
 for k in df_dict:
