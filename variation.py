@@ -65,16 +65,14 @@ def draw(df: pd.DataFrame, width: float,
 fig, ax = plt.subplots()
 ax.set_ylim([0, 1.2])
 
-df_dict = {}
-
-df_dict['comp_core_comp_cache'] =\
-    get_qos_dict('variation\\big_core_comp_cache_comp_core_7x7.csv')
-
-df_dict['part_core_comp_cache'] = \
-    get_qos_dict('variation\\big_core_comp_cache_part_core_7x7.csv')
-
-df_dict['part_core_part_cache'] = \
-    get_qos_dict('variation\\big_core_part_cache_part_core_7x7.csv')
+df_dict = {
+    'comp_core_comp_cache':
+        get_qos_dict('variation\\big_core_comp_cache_comp_core_7x7.csv'),
+    'part_core_comp_cache':
+        get_qos_dict('variation\\big_core_comp_cache_part_core_7x7.csv'),
+    'part_core_part_cache':
+        get_qos_dict('variation\\big_core_part_cache_part_core_7x7.csv')
+}
 
 iter_num = 0
 width = 0.25

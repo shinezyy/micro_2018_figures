@@ -18,7 +18,7 @@ def get_qos_dict(filename):
     df_raw = read_raw(filename)
     d = {}
     for index, row in df_raw.iterrows():
-        d[index] = row.loc['QoS_0']
+        d[index] = row.loc['overall QoS']
     df = pd.DataFrame.from_dict(d, orient='index')
     return df
 
@@ -43,7 +43,7 @@ def draw(df: pd.DataFrame, width: float,
 
 
 fig, ax = plt.subplots()
-ax.set_ylim([0.4, 1.2])
+ax.set_ylim([0.5, 2.2])
 fig.set_size_inches((14, 6))
 
 df_dict = {
@@ -69,10 +69,9 @@ for k in df_dict:
 ax.legend([x[0] for x in rects_list],
           [k for k in df_dict], fontsize='small')
 
-ax.plot([-width, 48 - width], [0.9, 0.9], "k--")
 plt.tight_layout()
 
-outfile_name = 'fig\\HPT_QoS'
+outfile_name = 'fig\\Overall_QoS'
 plt.savefig(outfile_name+'.eps', format='eps')
 plt.savefig(outfile_name+'.png')
 
