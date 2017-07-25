@@ -33,7 +33,7 @@ def draw(df: pd.DataFrame, width: float,
     # sys.exit(0)
     rects = ax.bar(ind + offset, df[0], width, color=color)
     ax.set_ylabel('Normalized IPC')
-    ax.set_title('Normalized IPC by pairs')
+    ax.set_title('Overall QoS by pairs')
     ax.set_xticks(ind + width/2)
     if (set_xtickname):
         xtick_names = ax.set_xticklabels(x_labels)
@@ -43,19 +43,23 @@ def draw(df: pd.DataFrame, width: float,
 
 
 fig, ax = plt.subplots()
-ax.set_ylim([0.5, 2.2])
+ax.set_ylim([0, 2.2])
 fig.set_size_inches((14, 6))
 
 df_dict = {
     'controlled_core_controlled_cache':
         get_qos_dict('qos_48\\big_core_cc_cache_cc_core_3.csv'),
     'part_core_comp_cache':
-        get_qos_dict('qos_48\\big_core_comp_cache_part_core_48.csv')
+        get_qos_dict('qos_48\\big_core_comp_cache_part_core_48.csv'),
+    'comp_core_comp_cache':
+        get_qos_dict('qos_48\\big_core_comp_cache_comp_core_48.csv'),
+    'part_core_part_cache':
+        get_qos_dict('qos_48\\big_core_part_cache_part_core_48.csv'),
 }
 
 iter_num = 0
 width = 0.2
-colors = sns.light_palette("grey", n_colors=4, reverse=True).as_hex()
+colors = sns.light_palette("grey", n_colors=5, reverse=True).as_hex()
 rects_list = []
 
 for k in df_dict:

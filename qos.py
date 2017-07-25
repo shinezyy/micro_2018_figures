@@ -43,19 +43,23 @@ def draw(df: pd.DataFrame, width: float,
 
 
 fig, ax = plt.subplots()
-ax.set_ylim([0.4, 1.2])
+ax.set_ylim([0, 1.2])
 fig.set_size_inches((14, 6))
 
 df_dict = {
     'controlled_core_controlled_cache':
         get_qos_dict('qos_48\\big_core_cc_cache_cc_core_3.csv'),
     'part_core_comp_cache':
-        get_qos_dict('qos_48\\big_core_comp_cache_part_core_48.csv')
+        get_qos_dict('qos_48\\big_core_comp_cache_part_core_48.csv'),
+    'comp_core_comp_cache':
+        get_qos_dict('qos_48\\big_core_comp_cache_comp_core_48.csv'),
+    'part_core_part_cache':
+        get_qos_dict('qos_48\\big_core_part_cache_part_core_48.csv'),
 }
 
 iter_num = 0
 width = 0.2
-colors = sns.light_palette("grey", n_colors=4, reverse=True).as_hex()
+colors = sns.light_palette("grey", n_colors=5, reverse=True).as_hex()
 rects_list = []
 
 for k in df_dict:
