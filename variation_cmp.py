@@ -56,7 +56,7 @@ def draw(df: pd.DataFrame, width: float,
     rects = ax.bar(ind + offset, means, width, color=color, yerr=stds)
     ax.set_ylabel('Normalized IPC')
     ax.set_title('Normalized IPC by benchmarks')
-    ax.set_xticks(ind)
+    ax.set_xticks(ind + width)
     ax.set_xticklabels(x_labels)
 
     return rects
@@ -76,7 +76,7 @@ df_dict = {
 }
 
 iter_num = 0
-width = 0.4
+width = 0.25
 colors = sns.light_palette("grey", n_colors=4, reverse=True).as_hex()
 rects_list = []
 
@@ -86,14 +86,13 @@ for k in df_dict:
                  offset=iter_num*width, color=colors[iter_num])
     rects_list.append(rects)
     iter_num += 1
-    break
 
 ax.legend([x[0] for x in rects_list],
           [k for k in df_dict], fontsize='small')
 
 plt.tight_layout()
 
-outfile_name = 'fig\\full_comp_var'
+outfile_name = 'fig\\var'
 plt.savefig(outfile_name+'.eps', format='eps')
 plt.savefig(outfile_name+'.png')
 
