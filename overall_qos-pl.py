@@ -51,16 +51,22 @@ fig.set_size_inches((9, 3.5))
 
 df_dict = {
     'pl=1000':
-        get_qos_dict('qos_48\\pl_1000.csv'),
+        get_qos_dict('pl\\pl_1000.csv'),
     'pl=2000':
-        get_qos_dict('qos_48\\pl_2000.csv'),
+        get_qos_dict('pl\\pl_2000.csv'),
     'pl=5000':
-        get_qos_dict('qos_48\\pl_5000.csv'),
+        get_qos_dict('pl\\pl_5000.csv'),
+    'pl=10000':
+        get_qos_dict('pl\\pl_10000.csv'),
+    'pl=20000':
+        get_qos_dict('pl\\pl_20000.csv'),
+    'pl=40000':
+        get_qos_dict('pl\\pl_40000.csv'),
 }
 
 iter_num = 0
-width = 0.18
-colors = sns.light_palette("grey", n_colors=6, reverse=True).as_hex()
+width = 0.15
+colors = sns.light_palette("grey", n_colors=7, reverse=True).as_hex()
 rects_list = []
 
 for k in df_dict:

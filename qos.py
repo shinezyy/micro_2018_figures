@@ -22,6 +22,8 @@ def get_qos_dict(filename):
     df = pd.DataFrame.from_dict(d, orient='index')
     df.loc['mean'] = df.mean(axis=0)
     df.loc['std'] = df.std(axis=0)
+    print(df[0][(df[0] < 0.81)])
+    sys.exit(0)
     return df
 
 
